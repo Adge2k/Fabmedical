@@ -33,14 +33,14 @@ jobs:
       steps:
       # Checkout the repo
       - name: Checkout
-      uses: actions/checkout@master
+        uses: actions/checkout@master
       - name: Build and push an image to container registry
-      uses: docker/build-push-action@v1
-      with:
-        username: ${{ secrets.ACR_USERNAME }}
-        password: ${{ secrets.ACR_PASSWORD }}
-        path: ${{ env.dockerfilePath  }}
-        dockerfile: '${{ env.dockerfilePath }}/Dockerfile'
-        registry: ${{ env.containerRegistry }}
-        repository: ${{ env.imageRepository }}
-        tags: ${{ env.tag }},latest
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+          path: ${{ env.dockerfilePath  }}
+          dockerfile: '${{ env.dockerfilePath }}/Dockerfile'
+          registry: ${{ env.containerRegistry }}
+          repository: ${{ env.imageRepository }}
+          tags: ${{ env.tag }},latest
